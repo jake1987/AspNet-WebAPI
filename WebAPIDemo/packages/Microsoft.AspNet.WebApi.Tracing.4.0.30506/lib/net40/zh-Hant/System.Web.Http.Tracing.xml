@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.Web.Http.Tracing</name>
+  </assembly>
+  <members>
+    <member name="T:System.Web.Http.HttpConfigurationTracingExtensions">
+      <summary> 這個靜態類別包含與 <see cref="T:System.Web.Http.Tracing.ITraceWriter" /> 執行個體的註冊相關的 Helper 方法。</summary>
+    </member>
+    <member name="M:System.Web.Http.HttpConfigurationTracingExtensions.EnableSystemDiagnosticsTracing(System.Web.Http.HttpConfiguration)">
+      <summary> 建立和註冊 <see cref="T:System.Web.Http.Tracing.ITraceWriter" /> 實作，以供此應用程式使用。</summary>
+      <returns>已建立和註冊的 <see cref="T:System.Web.Http.Tracing.SystemDiagnosticsTraceWriter" />。</returns>
+      <param name="configuration">為其註冊已建立之追蹤寫入器的 <see cref="T:System.Web.Http.HttpConfiguration" />。</param>
+    </member>
+    <member name="T:System.Web.Http.Tracing.SystemDiagnosticsTraceWriter">
+      <summary> 可追蹤 <see cref="T:System.Diagnostics.Trace" /> 的 <see cref="T:System.Web.Http.Tracing.ITraceWriter" /> 實作</summary>
+    </member>
+    <member name="M:System.Web.Http.Tracing.SystemDiagnosticsTraceWriter.#ctor">
+      <summary>初始化 <see cref="T:System.Web.Http.Tracing.SystemDiagnosticsTraceWriter" /> 類別的新執行個體。</summary>
+    </member>
+    <member name="M:System.Web.Http.Tracing.SystemDiagnosticsTraceWriter.Format(System.Web.Http.Tracing.TraceRecord)">
+      <summary> 將指定 <see cref="T:System.Web.Http.Tracing.TraceRecord" /> 的內容格式化成單一字串，這個字串會針對每個 <see cref="T:System.Web.Http.Tracing.TraceRecord" /> 屬性包含以逗號分隔的名稱/值組。</summary>
+      <returns>包含以逗號分隔之名稱/值組的字串。</returns>
+      <param name="traceRecord">要從中產生結果的 <see cref="T:System.Web.Http.Tracing.TraceRecord" />。</param>
+    </member>
+    <member name="M:System.Web.Http.Tracing.SystemDiagnosticsTraceWriter.FormatDateTime(System.DateTime)">
+      <summary> 將適用於追蹤的 <see cref="T:System.DateTime" /> 格式化。</summary>
+      <returns>已將 <see cref="T:System.DateTime" /> 格式化為字串。</returns>
+      <param name="dateTime">
+        <see cref="T:System.DateTime" />。</param>
+    </member>
+    <member name="M:System.Web.Http.Tracing.SystemDiagnosticsTraceWriter.FormatRequestEnvelope(System.Web.Http.Tracing.TraceRecord)">
+      <summary> 將指定的 <see cref="T:System.Web.Http.Tracing.TraceRecord" /> 格式化為字串，根據 <see cref="T:System.Web.Http.Tracing.TraceKind" /> 而定，這個字串會描述傳入要求的初始回條或回應的最終傳送。</summary>
+      <returns>包含以逗號分隔之名稱/值組的字串。</returns>
+      <param name="traceRecord">要從中產生結果的 <see cref="T:System.Web.Http.Tracing.TraceRecord" />。</param>
+    </member>
+    <member name="P:System.Web.Http.Tracing.SystemDiagnosticsTraceWriter.IsVerbose">
+      <summary> 取得或設定值，這個值表示格式化的訊息是否應為詳細資訊格式，這代表它會顯示 <see cref="T:System.Web.Http.Tracing.TraceRecord" /> 的所有欄位。</summary>
+      <returns>true<see cref="T:System.Web.Http.Tracing.TraceRecord" />falsefalse</returns>
+    </member>
+    <member name="P:System.Web.Http.Tracing.SystemDiagnosticsTraceWriter.MinimumLevel">
+      <summary> 取得或設定最低追蹤層級。</summary>
+      <returns>
+        <see cref="T:System.Web.Http.Tracing.TraceLevel" />
+        <see cref="F:System.Web.Http.Tracing.TraceLevel.Info" />
+      </returns>
+    </member>
+    <member name="M:System.Web.Http.Tracing.SystemDiagnosticsTraceWriter.Trace(System.Net.Http.HttpRequestMessage,System.String,System.Web.Http.Tracing.TraceLevel,System.Action{System.Web.Http.Tracing.TraceRecord})">
+      <summary> 如果 level 大於或等於 <see cref="P:System.Web.Http.Tracing.SystemDiagnosticsTraceWriter.MinimumLevel" />，就會將追蹤寫入 <see cref="T:System.Diagnostics.Trace" />。</summary>
+      <param name="request">與此追蹤相關的 <see cref="T:System.Net.Http.HttpRequestMessage" />。它可能是 null，但結果追蹤不會包含任何相互關聯的 ID。</param>
+      <param name="category">追蹤的分類。這可以是任何使用者定義的值。此實作不會將它解譯，但會將它寫入追蹤。</param>
+      <param name="level">此追蹤的 <see cref="T:System.Web.Http.Tracing.TraceLevel" />。如果小於 <see cref="P:System.Web.Http.Tracing.SystemDiagnosticsTraceWriter.MinimumLevel" />，即會忽略此追蹤要求。</param>
+      <param name="traceAction">要叫用的使用者回呼，會將要新增至追蹤的其他資訊填入 <see cref="T:System.Web.Http.Tracing.TraceRecord" />。</param>
+    </member>
+    <member name="P:System.Web.Http.Tracing.SystemDiagnosticsTraceWriter.TraceSource">
+      <summary> 取得或設定要將追蹤傳送至其中的 <see cref="P:System.Web.Http.Tracing.SystemDiagnosticsTraceWriter.TraceSource" />。</summary>
+      <returns>
+        <see cref="P:System.Web.Http.Tracing.SystemDiagnosticsTraceWriter.TraceSource" />
+        <see cref="P:System.Web.Http.Tracing.SystemDiagnosticsTraceWriter.TraceSource" />
+        <see cref="T:System.Diagnostics.Trace" />null<see cref="T:System.Diagnostics.Trace" /></returns>
+    </member>
+    <member name="M:System.Web.Http.Tracing.SystemDiagnosticsTraceWriter.TranslateHttpResponseException(System.Web.Http.Tracing.TraceRecord)">
+      <summary> 檢查指定的 <see cref="T:System.Web.Http.Tracing.TraceRecord" />，以判斷其中是否包含 <see cref="T:System.Web.Http.HttpResponseException" />，如果包含，則會修改 <see cref="T:System.Web.Http.Tracing.TraceRecord" /> 以擷取更詳細的資訊。</summary>
+      <param name="traceRecord">要檢查和修改的 <see cref="T:System.Web.Http.Tracing.TraceRecord" />。</param>
+    </member>
+  </members>
+</doc>

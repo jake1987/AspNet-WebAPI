@@ -1,0 +1,22 @@
+Log Entry : 2016年12月22日 13:47:28
+消息类型：Exception
+消息内容：error
+引发异常的方法：System.Net.Http.HttpResponseMessage CreateUser(System.Object)
+引发异常源：WebAPIDemo   於 WebAPIDemo.Controllers.UserController.CreateUser(Object obj) 於 f:\Study\WebAPIDemo\WebAPIDemo\Controllers\UserController.cs: 行 36
+   於 lambda_method(Closure , Object , Object[] )
+   於 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   於 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   於 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   於 System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+------------------------------------
+Log Entry : 2016年12月22日 13:53:38
+消息类型：Exception
+消息内容：error
+引发异常的方法：System.Net.Http.HttpResponseMessage CreateUser(System.Object)
+引发异常源：WebAPIDemo   於 WebAPIDemo.Controllers.UserController.CreateUser(Object obj) 於 f:\Study\WebAPIDemo\WebAPIDemo\Controllers\UserController.cs: 行 36
+   於 lambda_method(Closure , Object , Object[] )
+   於 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   於 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   於 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   於 System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+------------------------------------
